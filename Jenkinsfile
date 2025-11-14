@@ -1,3 +1,6 @@
+library identifier: 'jenkins-shared-library@main',
+        retriever: modernSCM([$class: 'GitSCMSource', remote: 'git@github.com:VJ-CCS-Tech-ops/jenkins-shared-library.git'])
+
 pipeline {
     agent any
 
@@ -5,6 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                audit()
             }
         }
         stage('Test') {
